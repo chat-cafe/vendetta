@@ -7,7 +7,9 @@ export default function CafeSwitcher() {
     useProxy(settings);
 
     cafeConfig.useProdDiscord = !cafeConfig.useProdDiscord;
-    BundleUpdaterManager.reload();
+    setTimeout(() => {
+        BundleUpdaterManager.reload();
+    }, 500);
 
     return (
         <ErrorBoundary>
