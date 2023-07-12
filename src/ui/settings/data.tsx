@@ -95,6 +95,12 @@ export const getScreens = (youKeys = false): Screen[] => [
             return noErrorBoundary ? <PageView /> : <ErrorBoundary><PageView /></ErrorBoundary>
         },
     },
+    {
+        key: formatKey("VendettaCafe", youKeys),
+        title: "Cafe",
+        icon: "settings",
+        render: General,
+    },
 ];
 
 export const getRenderableScreens = (youKeys = false) => getScreens(youKeys).filter(s => s.shouldRender?.() ?? true);
