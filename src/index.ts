@@ -11,7 +11,13 @@ import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
 
+export const __cafe_mod_version = "1.0.0";
+
 export default async () => {
+    logger.log(`Cafe mod v${__cafe_mod_version}`);
+
+    logger.log("test: " + JSON.stringify(window.GLOBAL_ENV));
+
     // Load everything in parallel
     const unloads = await Promise.all([
         patchLogHook(),
