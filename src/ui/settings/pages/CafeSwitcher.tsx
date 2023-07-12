@@ -1,13 +1,13 @@
 import { useProxy } from "@lib/storage";
 import { BundleUpdaterManager } from "@lib/native";
+import settings, { cafeConfig } from "@lib/settings";
 import { ErrorBoundary } from "@ui/components";
 import { Text } from "react-native";
-import settings, { loaderConfig } from "@lib/settings";
 
 export default function CafeSwitcher() {
     useProxy(settings);
 
-    loaderConfig.useProdDiscord = !loaderConfig.useProdDiscord;
+    cafeConfig.useProdDiscord = !cafeConfig.useProdDiscord;
     BundleUpdaterManager.reload();
 
     return (

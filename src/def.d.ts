@@ -337,6 +337,9 @@ interface LoaderConfig {
         url: string;
     };
     loadReactDevTools: boolean;
+}
+
+interface CafeConfig {
     useProdDiscord: boolean;
 }
 
