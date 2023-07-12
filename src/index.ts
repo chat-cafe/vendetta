@@ -10,6 +10,7 @@ import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
+import { cafeConfig } from "@lib/settings";
 
 export const __cafe_mod_version = "1.0.0";
 
@@ -38,5 +39,10 @@ export default async () => {
     logger.log("Vendetta is ready!");
 
     // Cafe watermark
-    showToast("You are using Cafe", getAssetIDByName("coffee@3x"));
+    if(cafeConfig.useProdDiscord) {
+        showToast("You are using Discord", getAssetIDByName("ic_badge_staff"));
+    }
+    else {
+        showToast("You are using Cafe", getAssetIDByName("ic_badge_staff"));
+    }
 }
