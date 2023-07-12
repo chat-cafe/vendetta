@@ -10,14 +10,16 @@ import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
+import { BundleUpdaterManager } from "@lib/native";
 
 export const __cafe_mod_version = "1.0.0";
 
 export default async () => {
     logger.log(`Cafe mod v${__cafe_mod_version}`);
 
-    // Overrride global env
-    /*window.GLOBAL_ENV = {
+    // Override global env
+    BundleUpdaterManager.reload()
+    window.GLOBAL_ENV = {
         "API_ENDPOINT": "//cafe.jb0s.dev/api",
         "API_VERSION": 9,
         "GATEWAY_ENDPOINT": "wss://cafe.jb0s.dev/gateway",
@@ -44,7 +46,7 @@ export default async () => {
         "HTML_TIMESTAMP": 1688857866123,
         "ALGOLIA_KEY": null,
         "PUBLIC_PATH": "/assets/"
-    };*/
+    };
 
     // Load everything in parallel
     const unloads = await Promise.all([
@@ -68,5 +70,5 @@ export default async () => {
     logger.log("Vendetta is ready!");
 
     // Cafe watermark
-    showToast("You are using Cafe", getAssetIDByName("ic_badge_staff"));
+    showToast("You are using Cafe", getAssetIDByName("coffee@3x"));
 }
