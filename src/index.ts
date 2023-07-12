@@ -10,7 +10,7 @@ import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
-import { cafeConfig } from "@lib/settings";
+import { loaderConfig } from "@lib/settings";
 
 export const __cafe_mod_version = "1.0.0";
 
@@ -39,7 +39,7 @@ export default async () => {
     logger.log("Vendetta is ready!");
 
     // Cafe watermark
-    if(cafeConfig.useProdDiscord) {
+    if(loaderConfig.useProdDiscord) {
         showToast("You are using Discord", getAssetIDByName("ic_badge_staff"));
     }
     else {
