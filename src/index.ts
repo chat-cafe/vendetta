@@ -36,10 +36,10 @@ export default async () => {
         initSettings(),
         initQuickInstall(),
     ]);
-        cafe_logger.log(`Use loader config\n${JSON.stringify(loaderConfig, null, 4)}`);
 
     // Assign window object
     window.vendetta = await windowObject(unloads);
+        cafe_logger.log(`Use loader config\n${JSON.stringify(loaderConfig, null, 4)}`);
 
     // Once done, load plugins
     unloads.push(await initPlugins());
