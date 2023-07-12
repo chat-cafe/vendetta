@@ -10,7 +10,7 @@ import initFixes from "@lib/fixes";
 import logger, { cafe_logger } from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
-import { cafeConfig } from "@lib/settings";
+import { cafeConfig, loaderConfig } from "@lib/settings";
 
 export const __cafe_mod_version = "1.0.0";
 
@@ -21,6 +21,7 @@ export default async () => {
     if(cafeConfig.useProdDiscord === undefined) {
         cafeConfig.useProdDiscord = false;
         cafe_logger.warn("cafeConfig.useProdDiscord is undefined!? set to false");
+        cafe_logger.log(`Use loader config\n${JSON.stringify(loaderConfig, null, 4)}`);
     }
 
     cafe_logger.log(`Use config\n${JSON.stringify(cafeConfig, null, 4)}`);
