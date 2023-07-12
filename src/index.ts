@@ -17,7 +17,7 @@ export default async () => {
     logger.log(`Cafe mod v${__cafe_mod_version}`);
 
     // Overrride global env
-    window.GLOBAL_ENV = {
+    /*window.GLOBAL_ENV = {
         "API_ENDPOINT": "//cafe.jb0s.dev/api",
         "API_VERSION": 9,
         "GATEWAY_ENDPOINT": "wss://cafe.jb0s.dev/gateway",
@@ -44,7 +44,7 @@ export default async () => {
         "HTML_TIMESTAMP": 1688857866123,
         "ALGOLIA_KEY": null,
         "PUBLIC_PATH": "/assets/"
-    };
+    };*/
 
     // Load everything in parallel
     const unloads = await Promise.all([
