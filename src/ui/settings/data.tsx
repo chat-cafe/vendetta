@@ -34,6 +34,12 @@ const keyMap = (screens: Screen[], data: string | ((s: Screen) => any) | null) =
 
 export const getScreens = (youKeys = false): Screen[] => [
     {
+        key: formatKey("VendettaCafeSwitcher", youKeys),
+        title: "Switch to Prod Discord",
+        icon: "ic_badge_staff",
+        render: General,
+    },
+    {
         key: formatKey("VendettaSettings", youKeys),
         title: "General",
         icon: "settings",
