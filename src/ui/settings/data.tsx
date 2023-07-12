@@ -94,13 +94,7 @@ export const getScreens = (youKeys = false): Screen[] => [
             navigation.addListener("focus", () => navigation.setOptions(without(options, "render", "noErrorBoundary")));
             return noErrorBoundary ? <PageView /> : <ErrorBoundary><PageView /></ErrorBoundary>
         },
-    },
-    {
-        key: formatKey("VendettaCafe", youKeys),
-        title: "Cafe",
-        icon: "settings",
-        render: General,
-    },
+    }
 ];
 
 export const getRenderableScreens = (youKeys = false) => getScreens(youKeys).filter(s => s.shouldRender?.() ?? true);
@@ -116,7 +110,7 @@ export const getYouData = () => {
     const renderableScreens = getRenderableScreens(true);
 
     return {
-        layout: { title: "Vendetta", settings: renderableScreens.map(s => s.key) }, // We can't use our keyMap function here since `settings` is an array not an object
+        layout: { title: "Cafe with Vendetta", settings: renderableScreens.map(s => s.key) }, // We can't use our keyMap function here since `settings` is an array not an object
         titleConfig: keyMap(screens, "title"),
         relationships: keyMap(screens, null),
         rendererConfigs: keyMap(screens, (s) => ({
