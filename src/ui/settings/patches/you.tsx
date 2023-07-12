@@ -1,7 +1,7 @@
 import { i18n } from "@metro/common";
 import { findByProps } from "@metro/filters";
 import { after } from "@lib/patcher";
-import { getRenderableScreens, getScreens, getYouData } from "@ui/settings/data";
+import { getCafeSwitcherData, getRenderableScreens, getScreens, getYouData } from "@ui/settings/data";
 
 const layoutModule = findByProps("useOverviewSettings");
 const titleConfigModule = findByProps("getSettingTitleConfig");
@@ -13,11 +13,12 @@ export default function patchYou() {
     const screens = getScreens(true);
     const renderableScreens = getRenderableScreens(true);
     const data = getYouData();
+    const cafe = getCafeSwitcherData();
 
     patches.push(after("useOverviewSettings", layoutModule, (_, ret) => {
 
         // Add cafe switcher
-        ret.splice(1, 0, data.layout);
+        ret.splice(1, 0, cafe.layout);
 
         // Add our settings
         const accountSettingsIndex = ret.findIndex((i: any) => i.title === i18n.Messages.ACCOUNT_SETTINGS);
