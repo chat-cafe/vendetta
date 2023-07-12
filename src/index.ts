@@ -15,12 +15,15 @@ import { cafeConfig } from "@lib/settings";
 export const __cafe_mod_version = "1.0.0";
 
 export default async () => {
+    cafe_logger.log(`Cafe mod v${__cafe_mod_version}`);
+
+    // Idk why this happens.
     if(cafeConfig.useProdDiscord === undefined) {
         cafeConfig.useProdDiscord = false;
+        cafe_logger.warn("cafeConfig.useProdDiscord is undefined!? set to false");
     }
 
-    logger.log(`Cafe mod v${__cafe_mod_version}`);
-    logger.log(`Use config\n${JSON.stringify(cafeConfig, null, 4)}`);
+    cafe_logger.log(`Use config\n${JSON.stringify(cafeConfig, null, 4)}`);
 
     // Load everything in parallel
     const unloads = await Promise.all([
@@ -42,6 +45,7 @@ export default async () => {
 
     // We good :)
     logger.log("Vendetta is ready!");
+    cafe_logger.log("Cafe is ready too! :D");
 
     // Cafe watermark
     if(cafeConfig.useProdDiscord) {
