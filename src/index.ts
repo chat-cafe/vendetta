@@ -21,7 +21,6 @@ export default async () => {
     if(cafeConfig.useProdDiscord === undefined) {
         cafeConfig.useProdDiscord = false;
         cafe_logger.warn("cafeConfig.useProdDiscord is undefined!? set to false");
-        cafe_logger.log(`Use loader config\n${JSON.stringify(loaderConfig, null, 4)}`);
     }
 
     cafe_logger.log(`Use config\n${JSON.stringify(cafeConfig, null, 4)}`);
@@ -37,6 +36,7 @@ export default async () => {
         initSettings(),
         initQuickInstall(),
     ]);
+        cafe_logger.log(`Use loader config\n${JSON.stringify(loaderConfig, null, 4)}`);
 
     // Assign window object
     window.vendetta = await windowObject(unloads);
