@@ -16,12 +16,12 @@ export default function patchYou() {
     const cafe = getCafeSwitcherData();
 
     patches.push(after("useOverviewSettings", layoutModule, (_, ret) => {
+        const accountSettingsIndex = ret.findIndex((i: any) => i.title === i18n.Messages.ACCOUNT_SETTINGS);
 
         // Add cafe switcher
-        ret.splice(1, 0, cafe.layout);
+        ret.splice(accountSettingsIndex - 1, 0, data.layout);
 
         // Add our settings
-        //const accountSettingsIndex = ret.findIndex((i: any) => i.title === i18n.Messages.ACCOUNT_SETTINGS);
         //ret.splice(accountSettingsIndex + 1, 0, data.layout);
 
         // Upload Logs button be gone
