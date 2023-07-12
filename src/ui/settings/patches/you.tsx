@@ -17,8 +17,8 @@ export default function patchYou() {
     patches.push(after("useOverviewSettings", layoutModule, (_, ret) => {
 
         // Add cafe switcher
-        ret.splice(0, 0, data.layout);
-        
+        ret.splice(1, 0, data.layout);
+
         // Add our settings
         const accountSettingsIndex = ret.findIndex((i: any) => i.title === i18n.Messages.ACCOUNT_SETTINGS);
         ret.splice(accountSettingsIndex + 1, 0, data.layout);
