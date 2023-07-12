@@ -7,7 +7,7 @@ import initQuickInstall from "@ui/quickInstall";
 import initSafeMode from "@ui/safeMode";
 import initSettings from "@ui/settings";
 import initFixes from "@lib/fixes";
-import logger from "@lib/logger";
+import logger, { cafe_logger } from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
 import { cafeConfig } from "@lib/settings";
@@ -15,8 +15,8 @@ import { cafeConfig } from "@lib/settings";
 export const __cafe_mod_version = "1.0.0";
 
 export default async () => {
-    logger.log(`Cafe mod v${__cafe_mod_version}`);
-    logger.log(`Use config\n${JSON.stringify(cafeConfig.useProdDiscord, null, 4)}`);
+    cafe_logger.log(`Cafe mod v${__cafe_mod_version}`);
+    cafe_logger.log(`Use config\n${JSON.stringify(cafeConfig.useProdDiscord, null, 4)}`);
 
     // Load everything in parallel
     const unloads = await Promise.all([
