@@ -129,3 +129,28 @@ export const getYouData = () => {
         })),
     };
 };
+
+export const getCafeSwitcherData = () => {
+    const screens = getScreens(true);
+    const renderableScreens = getRenderableScreens(true);
+
+    return {
+        layout: { title: "Cafe with Vendetta", settings: renderableScreens.map(s => s.key) }, // We can't use our keyMap function here since `settings` is an array not an object
+        titleConfig: keyMap(screens, "title"),
+        relationships: keyMap(screens, null),
+        rendererConfigs: keyMap(screens, (s) => ({
+            type: "route",
+            icon: s.icon ? getAssetIDByName(s.icon) : null,
+            screen: {
+                // TODO: This is bad, we should not re-convert the key casing
+                // For some context, just using the key here would make the route key be VENDETTA_CUSTOM_PAGE in you tab, which breaks compat with panels UI navigation
+                route: lodash.chain(s.key).camelCase().upperFirst().value(),
+                getComponent: () => ({ navigation, route }: any) => {
+                    navigation.addListener("focus", () => navigation.setOptions(s.options));
+                    // TODO: Some ungodly issue causes the keyboard to automatically close in TextInputs on Android. Why?!
+                    return <RN.View style={styles.container}><s.render {...route.params} /></RN.View>
+                },
+            },
+        })),
+    };
+};

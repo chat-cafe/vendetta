@@ -10,7 +10,6 @@ import initFixes from "@lib/fixes";
 import logger from "@lib/logger";
 import windowObject from "@lib/windowObject";
 import { showToast } from "@ui/toasts";
-import { BundleUpdaterManager } from "@lib/native";
 
 export const __cafe_mod_version = "1.0.0";
 
