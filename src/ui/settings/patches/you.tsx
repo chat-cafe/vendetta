@@ -21,8 +21,8 @@ export default function patchYou() {
         ret.splice(1, 0, cafe.layout);
 
         // Add our settings
-        const accountSettingsIndex = ret.findIndex((i: any) => i.title === i18n.Messages.ACCOUNT_SETTINGS);
-        ret.splice(accountSettingsIndex + 1, 0, data.layout);
+        //const accountSettingsIndex = ret.findIndex((i: any) => i.title === i18n.Messages.ACCOUNT_SETTINGS);
+        //ret.splice(accountSettingsIndex + 1, 0, data.layout);
 
         // Upload Logs button be gone
         const supportCategory = ret.find((i: any) => i.title === i18n.Messages.SUPPORT);
