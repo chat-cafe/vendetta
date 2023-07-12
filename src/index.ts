@@ -16,6 +16,7 @@ export const __cafe_mod_version = "1.0.0";
 
 export default async () => {
     logger.log(`Cafe mod v${__cafe_mod_version}`);
+    logger.log(`Use Prod: ${cafeConfig.useProdDiscord}`);
 
     // Load everything in parallel
     const unloads = await Promise.all([
