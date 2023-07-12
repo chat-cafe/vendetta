@@ -339,10 +339,6 @@ interface LoaderConfig {
     loadReactDevTools: boolean;
 }
 
-interface CafeConfig {
-    useProdDiscord: boolean;
-}
-
 interface LoaderIdentity {
     name: string;
     features: {

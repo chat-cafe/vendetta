@@ -14,7 +14,6 @@ import Developer from "@ui/settings/pages/Developer";
 import { PROXY_PREFIX } from "@/lib/constants";
 import { showConfirmationAlert } from "../alerts";
 import { showToast } from "../toasts";
-import CafeSwitcher from "@ui/settings/pages/CafeSwitcher";
 
 interface Screen {
     [index: string]: any;
@@ -34,12 +33,6 @@ const formatKey = (key: string, youKeys: boolean) => youKeys ? lodash.snakeCase(
 const keyMap = (screens: Screen[], data: string | ((s: Screen) => any) | null) => Object.fromEntries(screens.map(s => [s.key, typeof data === "function" ? data(s) : typeof data === "string" ? s[data] : data]));
 
 export const getScreens = (youKeys = false): Screen[] => [
-    {
-        key: formatKey("VendettaCafeSwitcher", youKeys),
-        title: "Switch to Prod Discord",
-        icon: "ic_badge_staff",
-        render: CafeSwitcher,
-    },
     {
         key: formatKey("VendettaSettings", youKeys),
         title: "General",

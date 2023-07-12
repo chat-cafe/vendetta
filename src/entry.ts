@@ -1,7 +1,7 @@
 import { ClientInfoManager } from "@lib/native";
 
 // This logs in the native logging implementation, e.g. logcat
-console.log("Hello from Vendetta!");
+console.log("Hello from Cafe x Vendetta!");
 
 window.GLOBAL_ENV = {
     "API_ENDPOINT": "//cafe.jb0s.dev/api",
